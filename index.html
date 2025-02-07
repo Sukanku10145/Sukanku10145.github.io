@@ -9,18 +9,16 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-    <script src="jquery-ui-1.14.1.custom/jquery-ui.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>    
 </head>
 <body>
     <script src="navigation.js"></script>
     <header>
         <div id="container">
-            <img src="images/adult-playing-violin-21926198.webp" width="458" height="308" alt="earth">
-            <img src="images/gettyimages-1171931341-612x612.jpg" width="512" height="307" alt="flight">
-            <img src="images/teenage-boy-playing-guitar-her-bedroom-74562054.webp" width="300" height="353" alt="rocket">
+            <img src="images/adult-playing-violin-21926198.webp" width="458" height="308" alt="earth" id="im1">
+            <img src="images/gettyimages-1171931341-612x612.jpg" width="512" height="307" alt="flight" id="im2">
+            <img src="images/teenage-boy-playing-guitar-her-bedroom-74562054.webp" width="300" height="353" alt="rocket" id="im3">
             
             <a class="icon-link icon-link-hover" id="previous" href="#">
                 <i class="bi bi-arrow-left-circle-fill"></i>
@@ -34,7 +32,7 @@
         <ul>
             <li><a href="#tabs-1">Sobre nosotros</a></li>
             <li><a href="#tabs-2">Metas</a></li>
-            <li><a href="#tabs-3">Nose</a></li>
+            <li><a href="#tabs-3">Vídeo</a></li>
         </ul>
         <div id="tabs-1">
             <p>Somos la empresa que desarrolla la aplicación MusicMultitool. Nuestra meta es que todo aquel que desee aprender música tenga todas las herramientas necesarias a mano.</p>
@@ -43,75 +41,80 @@
             <p>Deseamos quitar el estigma social de que la música es para jóvenes, así animar a personas de todas las edades a adentrarse en este mundo.</p>
         </div>
         <div id="tabs-3">
-            <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-            <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+          <video width="640" height="360" controls>
+            <source src="images/MZEQUXJCTKWPUCJ7.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Primer anuncio de MusiMultitool.</p>
         </div>
     </div>
 </body>
 <script src="footer.js"></script>
 <script>
-    $( function() {
-      $( "#tabs" ).tabs();
-    } );
-$( function() {
-  function left( element, using ) {
-    element.position({
-      my: "right middle",
-      at: "left+25 middle",
-      of: "#container",
-      collision: "none",
-      using: using
+  $( function() {
+    $( "#tabs" ).tabs({
+      heightStyle: "content"
     });
-  }
-  function right( element, using ) {
-    element.position({
-      my: "left middle",
-      at: "right-25 middle",
-      of: "#container",
-      collision: "none",
-      using: using
-    });
-  }
-  function center( element, using ) {
-    element.position({
-      my: "center middle",
-      at: "center middle",
-      of: "#container",
-      using: using
-    });
-  }
-
-  left( $( "img" ).eq( 0 ) );
-  center( $( "img" ).eq( 1 ) );
-  right( $( "img" ).eq( 2 ) );
-
-  function animate( to ) {
-    $( this ).stop( true, false ).animate( to );
-  }
-  function next( event ) {
-    event.preventDefault();
-    center( $( "img" ).eq( 2 ), animate );
-    left( $( "img" ).eq( 1 ), animate );
-    right( $( "img" ).eq( 0 ).appendTo( "#container" ) );
-  }
-  function previous( event ) {
-    event.preventDefault();
-    center( $( "img" ).eq( 0 ), animate );
-    right( $( "img" ).eq( 1 ), animate );
-    left( $( "img" ).eq( 2 ).prependTo( "#container" ) );
-  }
-  $( "#previous" ).on( "click", previous );
-  $( "#next" ).on( "click", next );
-
-  $( "img" ).on( "click", function( event ) {
-    $( "img" ).index( this ) === 0 ? previous( event ) : next( event );
   });
+  $( function() {
+    function left( element, using ) {
+      element.position({
+        my: "right middle",
+        at: "left+25 middle",
+        of: "#container",
+        collision: "none",
+        using: using
+      });
+    }
+    function right( element, using ) {
+      element.position({
+        my: "left middle",
+        at: "right-25 middle",
+        of: "#container",
+        collision: "none",
+        using: using
+      });
+    }
+    function center( element, using ) {
+      element.position({
+        my: "center middle",
+        at: "center middle",
+        of: "#container",
+        using: using
+      });
+    }
 
-  $( window ).on( "resize", function() {
-    left( $( "img" ).eq( 0 ), animate );
-    center( $( "img" ).eq( 1 ), animate );
-    right( $( "img" ).eq( 2 ), animate );
+    left( $( "img" ).eq( 0 ) );
+    center( $( "img" ).eq( 1 ) );
+    right( $( "img" ).eq( 2 ) );
+
+    function animate( to ) {
+      $( this ).stop( true, false ).animate( to );
+    }
+    function next( event ) {
+      event.preventDefault();
+      center( $( "img" ).eq( 2 ), animate );
+      left( $( "img" ).eq( 1 ), animate );
+      right( $( "img" ).eq( 0 ).appendTo( "#container" ) );
+    }
+    function previous( event ) {
+      event.preventDefault();
+      center( $( "img" ).eq( 0 ), animate );
+      right( $( "img" ).eq( 1 ), animate );
+      left( $( "img" ).eq( 2 ).prependTo( "#container" ) );
+    }
+    $( "#previous" ).on( "click", previous );
+    $( "#next" ).on( "click", next );
+
+    $( "img" ).on( "click", function( event ) {
+      $( "img" ).index( this ) === 0 ? previous( event ) : next( event );
+    });
+
+    $( window ).on( "resize", function() {
+      left( $( "img" ).eq( 0 ), animate );
+      center( $( "img" ).eq( 1 ), animate );
+      right( $( "img" ).eq( 2 ), animate );
+    });
   });
-} );
 </script>
 </html>

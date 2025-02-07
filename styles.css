@@ -1,25 +1,38 @@
 body {
     margin: 0;
 }
+
 #container {
     overflow: hidden;
     position: relative;
-    height: 400px;
-    align-content:flex-end;
+    height: 500px;
+    align-content: flex-end;
 }
 
 img {
     position: absolute;
     width: 90vw;
-    height: 390px;
+    height: 490px;
     object-fit: cover;
 }
 
-#links1{
+#im1 {
+    object-position: center 20%;
+}
+
+#im2 {
+    object-position: center 70%;
+}
+
+#im3 {
+    object-position: center 25%;
+}
+
+#links1 {
     text-align: right;
 }
 
-h3{
+h3 {
     text-align: center;
 }
 
@@ -36,18 +49,18 @@ h3{
 }
 
 #previous {
-    left: 20px; /* Posición en el extremo izquierdo */
+    left: 20px;
 }
 
 #next {
-    right: 20px; /* Posición en el extremo derecho */
+    right: 20px;
 }
 
-a{
+a {
     --bs-link-hover-color-rgb: 25, 135, 84;
 }
 
-#redes{
+#redes {
     --bs-icon-link-transform: translate3d(0, -.500rem, 0);
 }
 
@@ -69,4 +82,37 @@ a{
 .menu-strip a:hover {
     background-color: #ddd;
     color: black;
+}
+
+/* Asegurar que el contenido del tab se muestre correctamente */
+#tabs .ui-tabs-panel {
+    display: none;
+}
+
+#tabs .ui-tabs-panel.ui-tabs-active {
+    display: block;
+}
+
+/* Estilos para asegurar que el contenido del tab se ajuste */
+#tabs {
+  width: 100%;
+}
+
+#tabs div {
+  padding: 20px;
+  display: none;
+}
+
+#tabs div.ui-tabs-panel {
+  display: block;
+  padding: 10px;
+}
+
+#tabs-3{
+    text-align: center;
+}
+
+#tabs-3 video {
+    width: 50%; /* Hace que el video ocupe todo el ancho del contenedor */
+    height: auto; /* Ajusta la altura para mantener la proporción del video */
 }
