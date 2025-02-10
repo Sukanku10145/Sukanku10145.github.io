@@ -16,34 +16,34 @@
     <script src="navigation.js"></script>
     <div class="pageContentWrapper">
         <div class="container" id="contact">
-            <form class="row g-3 needs-validation" novalidate>
+            <form action="enviar.php" method="post" class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">
-                    <label for="validationCustom01" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="validationCustom01" required>
+                    <label for="nombre" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                     <div class="invalid-feedback">
                         Please provide your first name.
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="validationCustom02" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="validationCustom02" required>
+                    <label for="apellidos" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" required>
                     <div class="invalid-feedback">
                         Please provide your last name.
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="validationCustomUsername" class="form-label">Username</label>
+                    <label for="email" class="form-label">Email</label>
                     <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        <span class="input-group-text">@</span>
+                        <input type="email" class="form-control" id="email" name="email" required>
                         <div class="invalid-feedback">
                             Please provide an email.
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <label for="validationCustom03" class="form-label">Comment</label>
-                    <textarea class="form-control" id="validationCustom03" rows="14" required></textarea>
+                    <label for="comentario" class="form-label">Comment</label>
+                    <textarea class="form-control" id="comentario" name="comentario" rows="5" required></textarea>
                     <div class="invalid-feedback">
                         You must write something.
                     </div>
@@ -62,7 +62,7 @@
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Submit form</button>
                 </div>
-            </form>
+            </form>            
         </div>
     </div>
 </body>
