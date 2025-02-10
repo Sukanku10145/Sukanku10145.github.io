@@ -15,6 +15,9 @@
     <script src="navigation.js"></script>
     <div class="pageContentWrapper">
         <div class="container" id="contact">
+            <div id="dialog" title="Terms and conditions">
+                <p>No hay términos ni condiciones, pero este formulario es real y mandará un correo a mi correo personal con la información proporcionada.</p>
+            </div>
             <form action="https://formspree.io/f/mkgozllq" method="post" class="row g-3 needs-validation" novalidate>
                 <div class="col-md-4">
                     <label for="nombre" class="form-label">First name</label>
@@ -47,7 +50,7 @@
                         You must write something.
                     </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 d-flex align-items-center gap-2">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                         <label class="form-check-label" for="invalidCheck">
@@ -57,11 +60,13 @@
                             You must agree before submitting.
                         </div>
                     </div>
-                </div>
+                    <!-- Botón para abrir los términos -->
+                    <button id="opener" type="button" class="btn btn-link p-0">View terms</button>
+                </div>                
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Submit form</button>
                 </div>
-            </form>            
+            </form>
         </div>
     </div>
 </body>
@@ -69,28 +74,47 @@
     <script src="footer.js"></script>
 </footer>
 <script>
-document.querySelector("form").addEventListener("submit", async function(event) {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
-
-    try {
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: formData,
-            headers: { "Accept": "application/json" }
+    $( function() {
+        $( "#dialog" ).dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "blind",
+                duration: 1000
+            }
         });
+ 
+        $( "#opener" ).on( "click", function() {
+            $( "#dialog" ).dialog( "open" );
+        });
+    });
 
-        if (response.ok) {
-            document.getElementById("form-success").classList.remove("d-none");
-            form.reset();
-        } else {
-            alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
+    document.querySelector("form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok) {
+                document.getElementById("form-success").classList.remove("d-none");
+                form.reset();
+            } else {
+                alert("Hubo un error al enviar el formulario. Inténtalo de nuevo.");
+            }
+        } catch (error) {
+            alert("Error al conectar con el servidor. Verifica tu conexión.");
         }
-    } catch (error) {
-        alert("Error al conectar con el servidor. Verifica tu conexión.");
-    }
-});
+    });
+    
     (() => {
         'use strict'
 
