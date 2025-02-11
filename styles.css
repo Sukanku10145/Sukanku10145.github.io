@@ -3,30 +3,42 @@ textarea {
 }
 
 html{
-  position:relative; 
-  min-height: 100%;
+    position:relative; 
+    min-height: 100%;
 }
 /*Normalize html and body elements,this style is just good to have*/
 html,body{
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
 }
 
 .pageContentWrapper{
-  margin-bottom: 150px;/* Height of footer*/
-} 
-footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background:#ccc;
-    border-top-width: 1px;
-    border-color: gray;
-    border-top-style: solid;
-    margin-top: 5vh;
+    margin-bottom: 150px;/* Height of footer*/
 }
+
+/*_______________________________________________________________________________________*/
+
+#navigation {
+    background-color: #0A6847;
+    overflow: hidden;
+}
+
+#navigation a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-family: serif;
+}
+
+#navigation a:hover {
+    background-color: #7ABA78;
+    color: black;
+}
+
+/*_______________________________________________________________________________________*/
 
 #container {
     overflow: hidden;
@@ -54,24 +66,20 @@ img {
     object-position: center 25%;
 }
 
-#links1 {
-    text-align: right;
-}
-
-h3 {
-    text-align: center;
-}
-
 #previous, #next {
     position: absolute;
     z-index: 10;
     top: 50%;
     transform: translateY(-50%);
     font-size: 50px;
-    background: rgba(0, 0, 0, 0);
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
+    color: #F3CA52;
+}
+
+#previous:hover, #next:hover {
+    color: #F6E9B2;
 }
 
 #previous {
@@ -82,67 +90,62 @@ h3 {
     right: 20px;
 }
 
-a {
-    --bs-link-hover-color-rgb: 25, 135, 84;
+/*_______________________________________________________________________________________*/
+
+#myTab .nav-link{
+    color: gray;
+    background-color: #F6E9B2;
 }
 
-#redes {
-    --bs-icon-link-transform: translate3d(0, -.500rem, 0);
-}
-
-.menu-strip {
-    background-color: #333;
-    overflow: hidden;
-}
-
-.menu-strip a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-    font-family: serif;
-}
-
-.menu-strip a:hover {
-    background-color: #ddd;
+#myTab .nav-link.active {
     color: black;
+    background-color: #F3CA52;
 }
 
-/* Asegurar que el contenido del tab se muestre correctamente */
-#tabs .ui-tabs-panel {
-    display: none;
+.tab-content{
+    background-color: antiquewhite;
+    padding: 10px;
 }
-
-#tabs .ui-tabs-panel.ui-tabs-active {
-    display: block;
-}
-
-/* Estilos para asegurar que el contenido del tab se ajuste */
-#tabs {
-  width: 100%;
-}
-
-#tabs div {
-  padding: 20px;
-  display: none;
-}
-
-#tabs div.ui-tabs-panel {
-  display: block;
-  padding: 10px;
-}
-
-#tabs-3{
+/*
+#video-tab-pane{
     text-align: center;
-}
+}*/
 
-#tabs-3 video {
-    width: 50%; /* Hace que el video ocupe todo el ancho del contenedor */
-    height: auto; /* Ajusta la altura para mantener la proporción del video */
-}
+/*_______________________________________________________________________________________*/
 
 #contact{
     margin-top: 10vh;
+}
+
+/*_______________________________________________________________________________________*/
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background:#ccc;
+    border-top-width: 1px;
+    border-color: gray;
+    border-top-style: solid;
+    margin-top: 5vh;
+    color: #0A6847;
+}
+
+h3 {
+    text-align: center;
+}
+
+#redes {
+    --bs-link-color-rgb: 10, 104, 71;
+    --bs-icon-link-transform: translate3d(0, -.500rem, 0);
+}
+
+#redes:hover {
+    --bs-link-color-rgb: 122, 186, 120;
+}
+
+#links1 {
+    text-align: right;
 }

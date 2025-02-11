@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </head>
 <body>
   <script src="navigation.js"></script>
   <header>
@@ -28,25 +29,26 @@
     </div>
   </header>
   <div class="pageContentWrapper">
-    <div id="tabs">
-        <ul>
-            <li><a href="#tabs-1">Sobre nosotros</a></li>
-            <li><a href="#tabs-2">Metas</a></li>
-            <li><a href="#tabs-3">Vídeo</a></li>
-        </ul>
-        <div id="tabs-1">
-            <p>Somos la empresa que desarrolla la aplicación MusicMultitool. Nuestra meta es que todo aquel que desee aprender música tenga todas las herramientas necesarias a mano.</p>
+    <div class="d-flex align-items-start">
+      <div class="nav flex-column nav-pills me-3" id="myTab" role="tablist" aria-orientation="vertical">
+        <button class="nav-link active" id="nosotros-tab" data-bs-toggle="pill" data-bs-target="#nosotros-tab-pane" type="button" role="tab" aria-controls="nosotros-tab-pane" aria-selected="true">Sobre nosotros</button>
+        <button class="nav-link" id="metas-tab" data-bs-toggle="pill" data-bs-target="#metas-tab-pane" type="button" role="tab" aria-controls="metas-tab-pane" aria-selected="false">Metas</button>
+        <button class="nav-link" id="video-tab" data-bs-toggle="pill" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="false">Vídeo</button>
+      </div>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="nosotros-tab-pane" role="tabpanel" aria-labelledby="nosotros-tab" tabindex="0">
+          Somos la empresa que desarrolla la aplicación MusicMultitool. Nuestra meta es que todo aquel que desee aprender música tenga todas las herramientas necesarias a mano.
         </div>
-        <div id="tabs-2">
-            <p>Deseamos quitar el estigma social de que la música es para jóvenes, así animar a personas de todas las edades a adentrarse en este mundo.</p>
+        <div class="tab-pane fade" id="metas-tab-pane" role="tabpanel" aria-labelledby="metas-tab" tabindex="0">
+          Deseamos quitar el estigma social de que la música es para jóvenes, así animar a personas de todas las edades a adentrarse en este mundo.
         </div>
-        <div id="tabs-3">
+        <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
           <video width="640" height="360" controls>
             <source src="images/MZEQUXJCTKWPUCJ7.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          <p>Primer anuncio de MusiMultitool.</p>
         </div>
+      </div>
     </div>
   </div>
 </body>
@@ -54,11 +56,6 @@
     <script src="footer.js"></script>
 </footer>
 <script>
-  $( function() {
-    $( "#tabs" ).tabs({
-      heightStyle: "content"
-    });
-  });
   $( function() {
     function left( element, using ) {
       element.position({
