@@ -92,9 +92,14 @@ img {
 
 /*_______________________________________________________________________________________*/
 
+#myTab{
+    margin-left: 10vw;
+}
+
 #myTab .nav-link{
     color: gray;
     background-color: #F6E9B2;
+    min-width: 20vw;
 }
 
 #myTab .nav-link.active {
@@ -104,12 +109,14 @@ img {
 
 .tab-content{
     background-color: antiquewhite;
+    margin-right: 10vw;
+    min-width: 60vw;
     padding: 10px;
 }
-/*
+
 #video-tab-pane{
     text-align: center;
-}*/
+}
 
 /*_______________________________________________________________________________________*/
 
