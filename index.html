@@ -29,31 +29,41 @@
     </div>
   </header>
   <div class="pageContentWrapper">
-    <div class="d-flex align-items-start">
-      <div class="nav flex-column nav-pills me-3" id="myTab" role="tablist" aria-orientation="vertical">
-        <button class="nav-link active" id="nosotros-tab" data-bs-toggle="pill" data-bs-target="#nosotros-tab-pane" type="button" role="tab" aria-controls="nosotros-tab-pane" aria-selected="true">Sobre nosotros</button>
-        <button class="nav-link" id="metas-tab" data-bs-toggle="pill" data-bs-target="#metas-tab-pane" type="button" role="tab" aria-controls="metas-tab-pane" aria-selected="false">Metas</button>
-        <button class="nav-link" id="video-tab" data-bs-toggle="pill" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="false">Vídeo</button>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="nosotros-tab" data-bs-toggle="tab" data-bs-target="#nosotros-tab-pane" type="button" role="tab" aria-controls="nosotros-tab-pane" aria-selected="true">
+          Sobre nosotros
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="metas-tab" data-bs-toggle="tab" data-bs-target="#metas-tab-pane" type="button" role="tab" aria-controls="metas-tab-pane" aria-selected="false">
+          Metas
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="false">
+          Vídeo
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="nosotros-tab-pane" role="tabpanel" aria-labelledby="nosotros-tab" tabindex="0">
+        <p>Somos la empresa responsable del desarrollo de MusicMultitool, una aplicación innovadora diseñada para facilitar el aprendizaje musical a personas de todos los niveles, desde principiantes hasta músicos avanzados.</p>
+        <p>Nuestra misión es brindar acceso a una amplia gama de herramientas digitales que hagan del proceso de aprendizaje una experiencia más sencilla, dinámica y efectiva. Con MusicMultitool, los usuarios pueden acceder a cursos especializados, crear partituras asistidas por inteligencia artificial, participar en foros de discusión y encontrar profesores o academias que se adapten a sus necesidades.</p>
+        <p>Creemos que la música es un lenguaje universal que une a las personas, y por eso trabajamos constantemente para ofrecer soluciones tecnológicas que hagan que aprender a cantar o tocar un instrumento sea accesible para todos.</p>
+        <p>En MusicMultitool, queremos que tengas todo lo que necesitas a mano para desarrollar tu talento musical y disfrutar del proceso de aprendizaje al máximo. 🎶</p>
       </div>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="nosotros-tab-pane" role="tabpanel" aria-labelledby="nosotros-tab" tabindex="0">
-          <p>Somos la empresa responsable del desarrollo de MusicMultitool, una aplicación innovadora diseñada para facilitar el aprendizaje musical a personas de todos los niveles, desde principiantes hasta músicos avanzados.</p>
-          <p>Nuestra misión es brindar acceso a una amplia gama de herramientas digitales que hagan del proceso de aprendizaje una experiencia más sencilla, dinámica y efectiva. Con MusicMultitool, los usuarios pueden acceder a cursos especializados, crear partituras asistidas por inteligencia artificial, participar en foros de discusión y encontrar profesores o academias que se adapten a sus necesidades.</p>
-          <p>Creemos que la música es un lenguaje universal que une a las personas, y por eso trabajamos constantemente para ofrecer soluciones tecnológicas que hagan que aprender a cantar o tocar un instrumento sea accesible para todos.</p>
-          <p>En MusicMultitool, queremos que tengas todo lo que necesitas a mano para desarrollar tu talento musical y disfrutar del proceso de aprendizaje al máximo. 🎶</p>
-        </div>
-        <div class="tab-pane fade" id="metas-tab-pane" role="tabpanel" aria-labelledby="metas-tab" tabindex="0">
-          <p>Uno de nuestros principales objetivos es eliminar el estigma social que asocia el aprendizaje musical exclusivamente con la juventud. Creemos firmemente que la música no tiene edad y que cualquier persona, sin importar su etapa de vida, puede descubrir el placer de tocar un instrumento o desarrollar su voz.</p>
-          <p>A través de MusicMultitool, queremos inspirar y motivar a personas de todas las edades a adentrarse en el mundo de la música, ofreciéndoles herramientas accesibles, intuitivas y efectivas que se adapten a sus necesidades y ritmo de aprendizaje. Nuestra plataforma está diseñada para brindar apoyo tanto a quienes comienzan desde cero como a aquellos que desean retomar su pasión musical después de muchos años.</p>
-          <p>Aprender música es un viaje enriquecedor, y queremos que nadie se sienta limitado por estereotipos o barreras sociales. Con MusicMultitool, cualquier momento es ideal para comenzar. 🎵</p>
-        </div>
-        <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
-          <p>Vídeo de presentación de MusicMultitool y primer anuncio de marketing.</p>
-          <video width="640" height="360" controls>
-            <source src="images/MZEQUXJCTKWPUCJ7.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+      <div class="tab-pane fade" id="metas-tab-pane" role="tabpanel" aria-labelledby="metas-tab" tabindex="0">
+        <p>Uno de nuestros principales objetivos es eliminar el estigma social que asocia el aprendizaje musical exclusivamente con la juventud. Creemos firmemente que la música no tiene edad y que cualquier persona, sin importar su etapa de vida, puede descubrir el placer de tocar un instrumento o desarrollar su voz.</p>
+        <p>A través de MusicMultitool, queremos inspirar y motivar a personas de todas las edades a adentrarse en el mundo de la música, ofreciéndoles herramientas accesibles, intuitivas y efectivas que se adapten a sus necesidades y ritmo de aprendizaje. Nuestra plataforma está diseñada para brindar apoyo tanto a quienes comienzan desde cero como a aquellos que desean retomar su pasión musical después de muchos años.</p>
+        <p>Aprender música es un viaje enriquecedor, y queremos que nadie se sienta limitado por estereotipos o barreras sociales. Con MusicMultitool, cualquier momento es ideal para comenzar. 🎵</p>
+      </div>
+      <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
+        <p>Vídeo de presentación de MusicMultitool y primer anuncio de marketing.</p>
+        <video width="640" height="360" controls>
+          <source src="images/MZEQUXJCTKWPUCJ7.mp4" type="video/mp4">
+          Tu navegador no soporta la etiqueta de video.
+        </video>
       </div>
     </div>
   </div>
