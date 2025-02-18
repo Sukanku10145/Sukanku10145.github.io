@@ -8,14 +8,21 @@ html{
 }
 /*Normalize html and body elements,this style is just good to have*/
 html,body{
+    height: 100%;
     margin:0;
     padding:0;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
 .pageContentWrapper{
+    flex: 1;
     margin-left: 10vw;
     margin-right: 10vw;
-    margin-bottom: 150px;/* Height of footer*/
     background: #F6E9B2;
     padding: 10px;
 }
@@ -58,6 +65,7 @@ body {
     position: relative;
     height: 500px;
     align-content: flex-end;
+    background: #F6E9B2;
 }
 
 #im1,#im2,#im3 {
@@ -159,16 +167,11 @@ body {
 /*_______________________________________________________________________________________*/
 
 footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     height: 150px;
     background:#ccc;
     border-top-width: 1px;
     border-color: gray;
     border-top-style: solid;
-    margin-top: 5vh;
     color: #0A6847;
 }
 

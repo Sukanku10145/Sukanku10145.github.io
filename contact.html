@@ -12,61 +12,63 @@
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
 </head>
 <body>
-    <script src="navigation.js"></script>
-    <div class="pageContentWrapper">
-        <div class="container" id="contact">
-            <div id="dialog" title="Terms and conditions">
-                <p>No hay términos ni condiciones, pero este formulario es real y mandará un correo a mi correo personal con la información proporcionada.</p>
+    <div class="wrapper">
+        <script src="navigation.js"></script>
+        <div class="pageContentWrapper">
+            <div class="container" id="contact">
+                <div id="dialog" title="Terms and conditions">
+                    <p>No hay términos ni condiciones, pero este formulario es real y mandará un correo a mi correo personal con la información proporcionada.</p>
+                </div>
+                <form action="https://formspree.io/f/mkgozllq" method="post" class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-4">
+                        <label for="nombre" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <div class="invalid-feedback">
+                            Please provide your first name.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="apellidos" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+                        <div class="invalid-feedback">
+                            Please provide your last name.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">@</span>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                            <div class="invalid-feedback">
+                                Please provide an email.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="comentario" class="form-label">Comment</label>
+                        <textarea class="form-control" id="comentario" name="comentario" rows="5" required></textarea>
+                        <div class="invalid-feedback">
+                            You must write something.
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex align-items-center gap-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                        <!-- Botón para abrir los términos -->
+                        <button id="opener" type="button" class="btn btn-link p-0">View terms</button>
+                    </div>                
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                    </div>
+                </form>
             </div>
-            <form action="https://formspree.io/f/mkgozllq" method="post" class="row g-3 needs-validation" novalidate>
-                <div class="col-md-4">
-                    <label for="nombre" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    <div class="invalid-feedback">
-                        Please provide your first name.
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="apellidos" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="apellidos" name="apellidos" required>
-                    <div class="invalid-feedback">
-                        Please provide your last name.
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="email" class="form-label">Email</label>
-                    <div class="input-group has-validation">
-                        <span class="input-group-text">@</span>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <div class="invalid-feedback">
-                            Please provide an email.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <label for="comentario" class="form-label">Comment</label>
-                    <textarea class="form-control" id="comentario" name="comentario" rows="5" required></textarea>
-                    <div class="invalid-feedback">
-                        You must write something.
-                    </div>
-                </div>
-                <div class="col-12 d-flex align-items-center gap-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                        <label class="form-check-label" for="invalidCheck">
-                            Agree to terms and conditions
-                        </label>
-                        <div class="invalid-feedback">
-                            You must agree before submitting.
-                        </div>
-                    </div>
-                    <!-- Botón para abrir los términos -->
-                    <button id="opener" type="button" class="btn btn-link p-0">View terms</button>
-                </div>                
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Submit form</button>
-                </div>
-            </form>
         </div>
     </div>
 </body>
