@@ -50,10 +50,10 @@ body {
     object-position: center;
 }
 #im2 {
-    object-position: center 70%;
+    object-position: center;
 }
 #im3 {
-    object-position: center 35%;
+    object-position: center;
 }
 
 /* Flechas del slider */
@@ -81,6 +81,13 @@ body {
 }
 #next {
     right: 20px;
+}
+
+/* Video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Estilo para las tabs (About) */
