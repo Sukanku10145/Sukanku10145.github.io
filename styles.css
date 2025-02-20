@@ -150,11 +150,21 @@ body {
 
 /*_______________________________________________________________________________________*/
 
-#organigramaImg{
+.card-img-top {
+    height: 200px; /* Ajusta la altura según tu preferencia */
+    object-fit: cover; /* Mantiene la proporción y recorta el exceso */
+    object-position: center 20%;
+}
+
+#desarrollador {
+    object-position: center 70%;
+}
+
+#organigramaImg, #marketingImg {
     height: 50vh;
 }
 
-#organigramContainer{
+#organigramContainer, #marketingContainer {
     text-align: center;
 }
 
