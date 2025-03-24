@@ -19,22 +19,19 @@
                 <div class="timeline-item h-100">
                     <h3><i class="fas fa-music me-2"></i>Nuestra Banda Sonora 🎵</h3>
                     <div class="heart-divider">🎶</div>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Canción 1 - Artista
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            Canción 2 - Artista
-                        </a>
+                    <div id="reproductor-container"></div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <button class="btn btn-rosa mt-3 col-md-4" onclick="reproducirAleatorio()">
+                            <i class="fas fa-random me-2"></i>Reproducir aleatorio
+                        </button>
+                        <div class="col-md-4"></div>
                     </div>
-                    <button class="btn btn-rosa mt-3" onclick="reproducirAleatorio()">
-                        <i class="fas fa-random me-2"></i>Reproducir aleatorio
-                    </button>
                 </div>
             </div>
 
             <!-- Contador especial -->
-            <div class="col-12">
+            <div class="col-md-12">
                 <div class="timeline-item text-center">
                     <h3><i class="fas fa-clock me-2"></i>Próximo Aniversario 🎉</h3>
                     <div class="heart-divider">⏳</div>
@@ -111,6 +108,170 @@
             return diferenciaAnios + 1;
         }
 
+        const nuestraMusica = [
+            {
+                titulo: "Yellow",
+                artista: "Coldplay",
+                archivo: "musica/Coldplay - Yellow (Official Video).mp3" // Ruta a tu archivo de música
+            },
+            {
+                titulo: "Car's outside",
+                artista: "James Arthur",
+                archivo: "musica/James Arthur - Car's Outside (Official Lyric Video).mp3"
+            },
+            {
+                titulo: "Cool for the summer",
+                artista: "Demi Lovato",
+                archivo: "musica/Demi Lovato - Cool for the Summer (Official Video).mp3"
+            },
+            {
+                titulo: "Fix you",
+                artista: "Coldplay",
+                archivo: "musica/Coldplay - Fix You (Official Video).mp3"
+            },
+            {
+                titulo: "The Driver",
+                artista: "Måneskin",
+                archivo: "musica/Måneskin - THE DRIVER.mp3"
+            },
+            {
+                titulo: "Beautiful Things",
+                artista: "Benson Boone",
+                archivo: "musica/Benson Boone - Beautiful Things (Official Music Video).mp3"
+            },
+            {
+                titulo: "Loser, Baby",
+                artista: "Hazbin Hotel",
+                archivo: "musica/Loser, Baby Sing-Along  Hazbin Hotel  Prime Video.mp3"
+            },
+            {
+                titulo: "Still With You",
+                artista: "Jungkook",
+                archivo: "musica/Still With You.mp3"
+            },
+            {
+                titulo: "No puedo vivir sin ti",
+                artista: "LOS RONALDOS",
+                archivo: "musica/LOS RONALDOS - No puedo vivir sin ti.mp3"
+            },
+            {
+                titulo: "el parque",
+                artista: "Chiara Oliver, Violeta Hódar",
+                archivo: "musica/Chiara Oliver, Violeta Hódar - el parque (Video Oficial).mp3"
+            },
+            {
+                titulo: "la invitada",
+                artista: "Chiara Oliver",
+                archivo: "musica/Chiara Oliver - la invitada (Video Oficial).mp3"
+            },
+            {
+                titulo: "Good Luck, Babe!",
+                artista: "Chappell Roan",
+                archivo: "musica/Chappell Roan - Good Luck, Babe! (Official Lyric Video).mp3"
+            },
+            {
+                titulo: "golden hour",
+                artista: "JVKE",
+                archivo: "musica/JVKE - golden hour (official music video).mp3"
+            },
+            {
+                titulo: "Heart Attack",
+                artista: "Demi Lovato",
+                archivo: "musica/Demi Lovato - Heart Attack (Official Video).mp3"
+            },
+            {
+                titulo: "Die WIth A Smile",
+                artista: "Lady Gaga, Bruno Mars",
+                archivo: "musica/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video).mp3"
+            },
+            {
+                titulo: "Who",
+                artista: "Jimin",
+                archivo: "musica/지민 (Jimin) 'Who' Official MV.mp3"
+            }
+        ];
+
+        function cargarReproductor() {
+            const contenedor = document.querySelector('#reproductor-container');
+            contenedor.innerHTML = '';
+            
+            const row = document.createElement('div');
+            row.className = 'row g-4'; // Aumentamos el gap
+            
+            nuestraMusica.forEach((cancion, index) => {
+                const col = document.createElement('div');
+                col.className = 'col-12 col-md-4'; // Asegurar responsive
+                
+                const item = document.createElement('div');
+                item.className = 'musica-item h-100 d-flex align-items-center';
+                item.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <div class="flex-grow-1 me-3">
+                            <h6 class="mb-1 fw-bold">${cancion.titulo}</h6>
+                            <small class="text-muted d-block">${cancion.artista}</small>
+                        </div>
+                        <div class="controls">
+                            <button class="btn btn-rosa btn-lg rounded-circle" 
+                                    onclick="togglePlay(${index})">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <audio id="audio-${index}" src="${cancion.archivo}"></audio>
+                        </div>
+                    </div>
+                `;
+                
+                col.appendChild(item);
+                row.appendChild(col);
+            });
+            
+            contenedor.appendChild(row);
+        }
+
+        let currentAudio = null;
+
+        function togglePlay(index) {
+            const audioElement = document.getElementById(`audio-${index}`);
+            const playButton = audioElement.parentElement.querySelector('button');
+            
+            if(currentAudio && currentAudio !== audioElement) {
+                currentAudio.pause();
+                currentAudio.parentElement.querySelector('button').innerHTML = '<i class="fas fa-play"></i>';
+            }
+            
+            if(audioElement.paused) {
+                audioElement.play();
+                playButton.innerHTML = '<i class="fas fa-pause"></i>';
+                currentAudio = audioElement;
+            } else {
+                audioElement.pause();
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+                currentAudio = null;
+            }
+            
+            audioElement.addEventListener('ended', () => {
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+                currentAudio = null;
+            });
+        }
+
+        function reproducirAleatorio() {
+            const randomIndex = Math.floor(Math.random() * nuestraMusica.length);
+            togglePlay(randomIndex);
+        }
+
+        // Modifica el verificarAcceso para cargar el reproductor
+        function verificarAcceso() {
+            if (localStorage.getItem("accesoIndex") === "true") {
+                document.getElementById("content").style.display = "block";
+                document.getElementById("error-message").style.display = "none";
+                actualizarContadorEspecial();
+                cargarReproductor(); // Añade esta línea
+            } else {
+                document.getElementById("content").style.display = "none";
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+        
         window.onload = verificarAcceso;
     </script>
 </body>
