@@ -51,3 +51,22 @@ function showConfetti() {
     fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
     fire(0.1, { spread: 120, startVelocity: 45 });
 }
+
+// common.js
+function detectarOrientacionImagenes() {
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.onload = function() {
+            const width = this.naturalWidth;
+            const height = this.naturalHeight;
+            
+            if (width/height > 1.2) { // Horizontal
+                this.parentElement.classList.add('horizontal-img');
+            } else if (height/width > 1.2) { // Vertical
+                this.parentElement.classList.add('vertical-img');
+            }
+        }
+    });
+}
+
+// Llamar después de cargar la galería
+document.addEventListener('DOMContentLoaded', detectarOrientacionImagenes);
