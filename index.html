@@ -3,50 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Nuestro Amor 💖</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="bg-pink text-white text-center py-3">
-        <h1>Bienvenida, mi amor 💖</h1>
+    <header class="bg-pink text-white text-center py-4">
+        <h1 class="display-3">Bienvenida, Mi Vida 💖</h1>
+        <div class="floating-heart">🎀</div>
     </header>
 
-    <div id="content" class="container mt-5 text-center" style="display: none;">
-        <p class="lead">Un espacio especial para nuestra historia de amor.</p>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <script src="nav.js"></script>
-        </nav>
+    <div id="content" class="container-main mt-5 text-center" style="display: none;">
+        <div class="fade-in">
+            <p class="lead fs-4">Un viaje maravilloso contigo...</p>
+            <div class="heart-divider">♥</div>
+            
+            <div class="love-counter">
+                <h3>Llevamos juntas</h3>
+                <div id="contadorAmor" class="display-6"></div>
+            </div>
+            
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
+                <script src="nav.js"></script>
+            </nav>
+        </div>
     </div>
 
-    <div id="error-message" class="container mt-5 text-center" style="display: none;">
-        <p class="lead text-danger">Acceso denegado. Escanea el QR para acceder.</p>
+    <div id="error-message" class="container-main mt-5 text-center" style="display: none;">
+        <p class="lead text-danger fs-3">Escanea el QR para acceder a nuestro mundo 💘</p>
+        <div class="heart-divider">🔒</div>
     </div>
+
+    <canvas id="confetti"></canvas>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="common.js"></script>
     <script>
-        // El token que se debe tener en la URL para acceder
         const tokenValido = "plazadeespana07/12/2024";
+        const fechaInicio = new Date('2023-07-14'); // Cambiar a fecha real
 
-        // Función que verifica si el usuario tiene el token correcto en la URL
         function verificarAcceso() {
             const params = new URLSearchParams(window.location.search);
             const accessToken = params.get("access");
 
-            // Verifica si el token en la URL coincide con el token válido
             if (accessToken === tokenValido) {
-                document.getElementById("content").style.display = "block"; // Muestra el contenido
-                document.getElementById("error-message").style.display = "none"; // Esconde el mensaje de error
-                
-                // Guarda en localStorage que se ha accedido desde "index.html"
+                history.replaceState(null, null, window.location.pathname);
+                document.getElementById("content").style.display = "block";
+                document.getElementById("error-message").style.display = "none";
                 localStorage.setItem("accesoIndex", "true");
+                showConfetti();
+                actualizarContador();
             } else {
-                document.getElementById("content").style.display = "none"; // Esconde el contenido
-                document.getElementById("error-message").style.display = "block"; // Muestra el mensaje de error
+                document.getElementById("content").style.display = "none";
+                document.getElementById("error-message").style.display = "block";
             }
         }
+        
+        function pluralizar(valor, singular, plural) {
+            return valor === 1 ? `${valor} ${singular}` : `${valor} ${plural}`;
+        }
 
-        // Llamamos a la función cuando la página cargue
+        function actualizarContador() {
+            const hoy = new Date();
+            
+            // Calculamos la diferencia en años, meses y días
+            let años = hoy.getFullYear() - fechaInicio.getFullYear();
+            let meses = hoy.getMonth() - fechaInicio.getMonth();
+            let dias = hoy.getDate() - fechaInicio.getDate();
+
+            // Ajustamos si el mes actual es menor que el mes de inicio
+            if (meses < 0) {
+                años--;
+                meses += 12;
+            }
+
+            // Ajustamos si los días actuales son menores que los días de inicio
+            if (dias < 0) {
+                meses--;
+                const ultimoDiaDelMesAnterior = new Date(hoy.getFullYear(), hoy.getMonth(), 0).getDate();
+                dias += ultimoDiaDelMesAnterior;
+            }
+            
+            // Usamos la función pluralizar para cada unidad de tiempo
+            document.getElementById('contadorAmor').innerHTML = `
+                ${pluralizar(años, 'año', 'años')}<br>
+                ${pluralizar(meses, 'mes', 'meses')}<br>
+                y ${pluralizar(dias, 'día', 'días')}
+            `;
+        }
+
         window.onload = verificarAcceso;
     </script>
 </body>

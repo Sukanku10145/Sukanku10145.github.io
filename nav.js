@@ -1,17 +1,33 @@
-// Este script inserta el menú de navegación en la página
 document.querySelector('nav').innerHTML = `
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.html?access=plazadeespana07/12/2024">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="historia.html">Nuestra Historia</a></li>
-                <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
-                <li class="nav-item"><a class="nav-link" href="anecdotas.html">Anécdotas</a></li>
-                <li class="nav-item"><a class="nav-link" href="extras.html">Extras</a></li>
-            </ul>
-        </div>
+<div class="container">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+            <li class="nav-item">
+                <a class="nav-link btn btn-rosa d-flex align-items-center gap-2" 
+                   href="index.html?access=plazadeespana07/12/2024">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-rosa d-flex align-items-center gap-2" href="historia.html">
+                    <i class="fas fa-heart"></i> Historia
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-rosa d-flex align-items-center gap-2" href="galeria.html">
+                    <i class="fas fa-images"></i> Galería
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-rosa d-flex align-items-center gap-2" href="anecdotas.html">
+                    <i class="fas fa-laugh-beam"></i> Anécdotas
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-rosa d-flex align-items-center gap-2" href="extras.html">
+                    <i class="fas fa-gift"></i> Extras
+                </a>
+            </li>
+        </ul>
     </div>
-`;
+</div>`;
