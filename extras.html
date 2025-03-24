@@ -14,22 +14,8 @@
 
     <div id="content" class="container-main mt-5" style="display: none;">
         <div class="row g-4">
-            <!-- Tarjeta 1: Cartas de amor -->
-            <div class="col-md-6">
-                <div class="timeline-item h-100">
-                    <h3><i class="fas fa-love-letter me-2"></i>Cartas de Amor 💌</h3>
-                    <div class="heart-divider">📜</div>
-                    <p>Escribe un mensaje especial:</p>
-                    <textarea id="mensajeAmor" class="form-control mb-2" rows="3"></textarea>
-                    <button class="btn btn-rosa" onclick="guardarMensaje()">
-                        <i class="fas fa-save me-2"></i>Guardar en el cofre
-                    </button>
-                    <div id="mensajesGuardados" class="mt-3"></div>
-                </div>
-            </div>
-
             <!-- Tarjeta 2: Música -->
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="timeline-item h-100">
                     <h3><i class="fas fa-music me-2"></i>Nuestra Banda Sonora 🎵</h3>
                     <div class="heart-divider">🎶</div>
@@ -74,35 +60,11 @@
             if (localStorage.getItem("accesoIndex") === "true") {
                 document.getElementById("content").style.display = "block";
                 document.getElementById("error-message").style.display = "none";
-                cargarMensajes();
                 actualizarContadorEspecial();
             } else {
                 document.getElementById("content").style.display = "none";
                 document.getElementById("error-message").style.display = "block";
             }
-        }
-
-        function guardarMensaje() {
-            const mensaje = document.getElementById('mensajeAmor').value;
-            if(mensaje) {
-                const mensajes = JSON.parse(localStorage.getItem('mensajesAmor') || '[]');
-                mensajes.push({
-                    fecha: new Date().toLocaleDateString(),
-                    contenido: mensaje
-                });
-                localStorage.setItem('mensajesAmor', JSON.stringify(mensajes));
-                cargarMensajes();
-            }
-        }
-
-        function cargarMensajes() {
-            const mensajes = JSON.parse(localStorage.getItem('mensajesAmor') || '[]');
-            const contenedor = document.getElementById('mensajesGuardados');
-            contenedor.innerHTML = mensajes.reverse().map(msg => `
-                <div class="alert alert-rosa mt-2">
-                    <strong>${msg.fecha}:</strong> ${msg.contenido}
-                </div>
-            `).join('');
         }
 
 
