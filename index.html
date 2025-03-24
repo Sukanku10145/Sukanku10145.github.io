@@ -45,14 +45,23 @@
         const fechaInicio = new Date('2023-07-14'); // Cambiar a fecha real
 
         function verificarAcceso() {
+            // Verificamos si ya está almacenado el estado de acceso
+            if (localStorage.getItem("accesoIndex") === "true") {
+                document.getElementById("content").style.display = "block";
+                document.getElementById("error-message").style.display = "none";
+                actualizarContador();
+                showConfetti();
+                return; // Salimos de la función si el acceso ya es válido
+            }
+
             const params = new URLSearchParams(window.location.search);
             const accessToken = params.get("access");
 
             if (accessToken === tokenValido) {
-                history.replaceState(null, null, window.location.pathname);
+                localStorage.setItem("accesoIndex", "true"); // Guardamos el acceso en localStorage
+                history.replaceState(null, null, window.location.pathname); // Limpiamos la URL
                 document.getElementById("content").style.display = "block";
                 document.getElementById("error-message").style.display = "none";
-                localStorage.setItem("accesoIndex", "true");
                 showConfetti();
                 actualizarContador();
             } else {
@@ -87,7 +96,7 @@
             }
             
             // Usamos la función pluralizar para cada unidad de tiempo
-            document.getElementById('contadorAmor').innerHTML = `
+            document.getElementById('contadorAmor').innerHTML = ` 
                 ${pluralizar(años, 'año', 'años')}<br>
                 ${pluralizar(meses, 'mes', 'meses')}<br>
                 y ${pluralizar(dias, 'día', 'días')}
