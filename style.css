@@ -97,7 +97,7 @@ h2 {
 /* Versión móvil */
 @media (max-width: 768px) {
   .gallery-item {
-    padding: 10px 10px 30px 10px;
+    padding: 10px 10px 10px 10px;
     transform: rotate(0.5deg);
     margin-bottom: 20px;
   }
