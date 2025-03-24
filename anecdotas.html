@@ -3,42 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anécdotas</title>
+    <title>Nuestras Anécdotas 😄</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="bg-pink text-white text-center py-3">
-        <h1>Anécdotas 💖</h1>
+    <header class="bg-pink text-white text-center py-4">
+        <h1 class="display-3">Momentos Divertidos 🤣</h1>
     </header>
 
-    <div id="content" class="container mt-5 text-center" style="display: none;">
-        <p class="lead">Recuerdos divertidos y especiales...</p>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div id="content" class="container-main mt-5" style="display: none;">
+        <div class="row g-4">
+            <!-- Anécdota 1 -->
+            <div class="col-md-6">
+                <div class="timeline-item">
+                    <h3>La vez que... 🎉</h3>
+                    <div class="heart-divider">😆</div>
+                    <p id="anecdota1" class="d-none">Aquí escribe tu primera anécdota divertida...</p>
+                    <button class="btn btn-rosa w-100" onclick="mostrarAnécdota(1)">
+                        Revelar Anécdota Secreta 🔐
+                    </button>
+                </div>
+            </div>
+
+            <!-- Anécdota 2 -->
+            <div class="col-md-6">
+                <div class="timeline-item">
+                    <h3>El día que... 🌟</h3>
+                    <div class="heart-divider">🤭</div>
+                    <p id="anecdota2" class="d-none">Aquí escribe tu segunda anécdota especial...</p>
+                    <button class="btn btn-rosa w-100" onclick="mostrarAnécdota(2)">
+                        Descubrir Recuerdo 🗝️
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de anécdotas aleatorias -->
+        <div class="text-center mt-5">
+            <button class="btn btn-rosa btn-lg" onclick="mostrarAnécdotaAleatoria()">
+                <i class="fas fa-random me-2"></i>Sorpresa del día 🎁
+            </button>
+            <div id="anecdotaAleatoria" class="mt-3 lead"></div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
             <script src="nav.js"></script>
         </nav>
     </div>
 
-    <div id="error-message" class="container mt-5 text-center" style="display: none;">
-        <p class="lead text-danger">Debes haber accedido desde el inicio para ver esta página.</p>
+    <div id="error-message" class="container-main mt-5 text-center" style="display: none;">
+        <p class="lead text-danger fs-3">Estos recuerdos son solo nuestros 🤫</p>
+        <div class="heart-divider">🔒</div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="common.js"></script>
     <script>
-        // Verifica si el usuario ha accedido desde index.html
+        const anecdotas = [
+            "Aquí va tu primera anécdota divertida...",
+            "Segunda anécdota graciosa...",
+            "Tercer momento memorable..."
+        ];
+
         function verificarAcceso() {
             if (localStorage.getItem("accesoIndex") === "true") {
-                document.getElementById("content").style.display = "block"; // Muestra el contenido
-                document.getElementById("error-message").style.display = "none"; // Esconde el mensaje de error
+                document.getElementById("content").style.display = "block";
+                document.getElementById("error-message").style.display = "none";
             } else {
-                document.getElementById("content").style.display = "none"; // Esconde el contenido
-                document.getElementById("error-message").style.display = "block"; // Muestra el mensaje de error
+                document.getElementById("content").style.display = "none";
+                document.getElementById("error-message").style.display = "block";
             }
         }
 
-        // Llamamos a la función cuando la página cargue
+        function mostrarAnécdota(numero) {
+            const elemento = document.getElementById(`anecdota${numero}`);
+            elemento.classList.toggle('d-none');
+        }
+
+        function mostrarAnécdotaAleatoria() {
+            const indice = Math.floor(Math.random() * anecdotas.length);
+            document.getElementById('anecdotaAleatoria').innerHTML = `
+                <div class="alert alert-rosa">
+                    💬 "${anecdotas[indice]}"
+                </div>
+            `;
+        }
+
         window.onload = verificarAcceso;
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

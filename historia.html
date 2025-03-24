@@ -3,55 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Historia</title>
+    <title>Nuestra Historia 💞</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="bg-pink text-white text-center py-3">
-        <h1>Nuestra Historia 💖</h1>
+    <header class="bg-pink text-white text-center py-4">
+        <h1 class="display-3">Nuestra Historia 💘</h1>
     </header>
 
-    <div id="content" class="container mt-5" style="display: none;">
-        <div class="fade-in">
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Nuestro Primer Encuentro 💘</h3>
-                    <div class="heart-divider">♥</div>
-                    <p>El día que nuestras miradas se encontraron por primera vez...</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Primera Cita 🌹</h3>
-                    <div class="heart-divider">♥</div>
-                    <p>Esa tarde inolvidable donde todo comenzó...</p>
-                </div>
+    <div id="content" class="container-main mt-5" style="display: none;">
+        <div class="timeline">
+            <!-- Añadir eventos reales -->
+            <div class="timeline-item">
+                <h3>Primer Encuentro 💖</h3>
+                <div class="heart-divider">📅 12 Julio 2023</div>
+                <p class="lead">El día en que nuestras miradas se encontraron por primera vez...</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Primera Cita Romántica 🌹</h3>
+                <div class="heart-divider">📅 15 Julio 2023</div>
+                <p class="lead">Esa tarde mágica donde comenzó todo...</p>
+                <button class="btn btn-rosa mt-2" onclick="showMemory('primeraCita')">
+                    Ver Recuerdo Especial
+                </button>
             </div>
         </div>
+        
         <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
             <script src="nav.js"></script>
         </nav>
     </div>
 
-    <div id="error-message" class="container mt-5 text-center" style="display: none;">
-        <p class="lead text-danger">Debes haber accedido desde el inicio para ver esta página.</p>
+    <div id="error-message" class="container-main mt-5 text-center" style="display: none;">
+        <p class="lead text-danger fs-3">Acceso exclusivo para nosotros 💞</p>
+        <div class="heart-divider">🔒</div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="common.js"></script>
     <script>
-        // Verifica si el usuario ha accedido desde index.html
         function verificarAcceso() {
             if (localStorage.getItem("accesoIndex") === "true") {
-                document.getElementById("content").style.display = "block"; // Muestra el contenido
-                document.getElementById("error-message").style.display = "none"; // Esconde el mensaje de error
+                document.getElementById("content").style.display = "block";
+                document.getElementById("error-message").style.display = "none";
+                showConfetti();
             } else {
-                document.getElementById("content").style.display = "none"; // Esconde el contenido
-                document.getElementById("error-message").style.display = "block"; // Muestra el mensaje de error
+                document.getElementById("content").style.display = "none";
+                document.getElementById("error-message").style.display = "block";
             }
         }
 
-        // Llamamos a la función cuando la página cargue
+        function showMemory(tipo) {
+            const memorias = {
+                primeraCita: {
+                    titulo: "Nuestra Primera Cita",
+                    contenido: "Aquí puedes describir todos los detalles de ese día especial..."
+                }
+            };
+            
+            // Implementar modal con la memoria
+            const memoria = memorias[tipo];
+            alert(`💌 ${memoria.titulo}\n\n${memoria.contenido}`);
+        }
+
         window.onload = verificarAcceso;
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
