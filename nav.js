@@ -28,11 +28,6 @@ document.querySelector('nav').innerHTML = `
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link btn btn-rosa" href="anecdotas.html">
-                    <i class="fas fa-laugh-beam"></i> Anécdotas
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link btn btn-rosa" href="extras.html">
                     <i class="fas fa-gift"></i> Extras
                 </a>

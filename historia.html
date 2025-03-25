@@ -16,16 +16,55 @@
         <div class="timeline">
             <!-- Añadir eventos reales -->
             <div class="timeline-item">
-                <h3>Primer Encuentro 💖</h3>
-                <div class="heart-divider">📅 12 Julio 2023</div>
-                <p class="lead">El día en que nuestras miradas se encontraron por primera vez...</p>
+                <h3>Primer Privado 💬</h3>
+                <div class="heart-divider">📅 2 Abril 2023</div>
+                <p class="lead">El día que me pediste una foto de mi cara...</p>
+                <button class="btn btn-rosa mt-2" onclick="showMemory('privado')">
+                    Ver Recuerdo Especial
+                </button>
             </div>
 
             <div class="timeline-item">
-                <h3>Primera Cita Romántica 🌹</h3>
-                <div class="heart-divider">📅 15 Julio 2023</div>
-                <p class="lead">Esa tarde mágica donde comenzó todo...</p>
+                <h3>Primer Cumpleaños 🎂</h3>
+                <div class="heart-divider">📅 8 Abril 2023</div>
+                <p class="lead">Tu primer cumpleaños junto a mí, cuando me regalaste por primera vez unas flores...</p>
+                <button class="btn btn-rosa mt-2" onclick="showMemory('cumpleaños')">
+                    Ver Recuerdo Especial
+                </button>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Primeras Navidades 🎄</h3>
+                <div class="heart-divider">📅 25 Diciembre 2023</div>
+                <p class="lead">La verdad, fue bonito que conocieras mejor a mi familia y yo a la tuya...</p>
+                <button class="btn btn-rosa mt-2" onclick="showMemory('navidad')">
+                    Ver Recuerdo Especial
+                </button>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Declaración 💟</h3>
+                <div class="heart-divider">📅 14 Julio 2023</div>
+                <p class="lead">Esa tarde en el centro de Huelva cuando te declaraste con carteles...</p>
                 <button class="btn btn-rosa mt-2" onclick="showMemory('primeraCita')">
+                    Ver Recuerdo Especial
+                </button>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Primer Concierto 🎤</h3>
+                <div class="heart-divider">📅 14 Junio 2024</div>
+                <p class="lead">Aunque no acabara bien, atesoro ese recuerdo...</p>
+                <button class="btn btn-rosa mt-2" onclick="showMemory('concierto')">
+                    Ver Recuerdo Especial
+                </button>
+            </div>
+            
+            <div class="timeline-item">
+                <h3>Ya Sabes ⛲</h3>
+                <div class="heart-divider">📅 7 Diciembre 2024</div>
+                <p class="lead">Aquel día en la plaza de España fue maravilloso...</p>
+                <button class="btn btn-rosa mt-2" onclick="showMemory('sevilla')">
                     Ver Recuerdo Especial
                 </button>
             </div>
@@ -37,7 +76,7 @@
     </div>
 
     <div id="error-message" class="container-main mt-5 text-center" style="display: none;">
-        <p class="lead text-danger fs-3">Acceso exclusivo para nosotros 💞</p>
+        <p class="lead text-danger fs-3">Acceso exclusivo para nosotras 💞</p>
         <div class="heart-divider">🔒</div>
     </div>
 
@@ -58,8 +97,28 @@
         function showMemory(tipo) {
             const memorias = {
                 primeraCita: {
-                    titulo: "Nuestra Primera Cita",
-                    contenido: "Aquí puedes describir todos los detalles de ese día especial..."
+                    titulo: "Declaración",
+                    contenido: "Aquel día no pude decir que no, no pude seguir escondiendo lo que sentía por tí. Ese día con esos carteles también terminé de entender lo especial que eres, lo maravillosa que eres. Entendí que tú no amas a medias, tú lo das todo."
+                },
+                concierto: {
+                    titulo: "Primer Concierto",
+                    contenido: "Aunque hubiera muchos problemas, me encanta verlo como nuestro primer concierto juntas y nuestra primera vez en Sevilla juntas. También el hotel fue una caca, pero fue la primera vez que tuve que desenvolverme sola en algo así."
+                },
+                navidad: {
+                    titulo: "Primeras Navidades",
+                    contenido: "Sé que no tenemos familias perfectas, pero aquellas navidades me sentí un poco más cerca de tí al conocer a tu familia y tú a la mía. Me sentí un paso más cerca de nuestro futuro."
+                },
+                cumpleaños: {
+                    titulo: "Primer Cumpleaños",
+                    contenido: "Sé que acabó arruinándose por culpa de Ezquiel y Yeray, pero prefiero recordarlo como el día que empecé a conocer tus amistades, el día que me regalaste unas flores, y aunque suene raro, el primer día que te ví con un ataque de ansiedad, y eso me hizo conocerte mejor."
+                },
+                privado: {
+                    titulo: "Primer Privado",
+                    contenido: "El día en el que diste el primer paso en nuestra relcaión. La verdad, mi forma de escribir daba lache, pero aún así tú tenías interés en mí. Agradezco ese día que me pediste una foto, lo agradezco porque nos trajo a donde estamos ahora."
+                },
+                sevilla: {
+                    titulo: "Ya Sabes",
+                    contenido: "No creo haga falta explicar qué pasó."
                 }
             };
             
